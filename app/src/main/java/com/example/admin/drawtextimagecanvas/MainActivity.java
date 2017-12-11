@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                         mediaStorageDir.getAbsolutePath() + fileName + fileType);
             }
         }
-    
+
         // something went wrong
         return null;
     }
