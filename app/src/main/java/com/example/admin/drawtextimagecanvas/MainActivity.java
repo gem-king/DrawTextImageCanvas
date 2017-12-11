@@ -67,6 +67,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnsave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bitmap bitmapDraw = bitmapDraw();
+                if (bitmapDraw != null)
+                    storeImage(bitmapDraw);
+
+            }
+        });
+
         drawBitmap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,24 +86,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnsave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Bitmap bitmapDraw = bitmapDraw();
-                if (bitmapDraw != null)
-                storeImage(bitmapDraw);
-
-            }
-        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
+        if(resultCode == RESULT_OK){
             if (requestCode == RQS_IMAGE) {
-                if (data != null) {
+                if(data != null) {
                     uri = data.getData();
                     text.setText(uri.toString());
                 }
